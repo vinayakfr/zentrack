@@ -5,7 +5,7 @@ import { Input } from "../components/Input";
 import { Card } from "../components/Card";
 import Image from "next/image";
 
-export default function SignupPage() {
+export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-[#0A0A0A] text-white overflow-hidden relative selection:bg-orange-500/30">
 
@@ -15,11 +15,11 @@ export default function SignupPage() {
 
       {/* Navbar */}
       <header className="w-full px-8 py-6 flex items-center justify-between z-20">
-        <div className="text-xl font-medium tracking-tight">ZenTrack</div>
+        <Link href='/' className="text-xl font-medium tracking-tight">ZenTrack</Link>
 
         <nav className="hidden md:flex items-center space-x-8 bg-white/5 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/10 text-sm font-medium">
           <Link href="/" className="hover:text-orange-400 transition-colors">Home</Link>
-          <Link href="/about" className="hover:text-orange-400 text-zinc-400 transition-colors">About Us</Link>
+          <Link href="/about" className="hover:text-orange-400 text-zinc-400 transition-colors">About</Link>
           <Link href="#" className="text-zinc-400 hover:text-zinc-200 transition-colors">Contact</Link>
         </nav>
 
@@ -48,35 +48,36 @@ export default function SignupPage() {
 
             <div className="max-w-md w-full mx-auto space-y-8">
               <div className="space-y-2">
-                <h2 className="text-3xl font-medium tracking-tight">Create an account</h2>
+                <h2 className="text-3xl font-medium tracking-tight">Welcome back</h2>
                 <p className="text-sm text-zinc-400">
-                  Already have an account? <Link href="/login" className="text-white font-medium hover:text-orange-400 transition-colors">Log In</Link>
+                  Don't have an account? <Link href="/signup" className="text-white font-medium hover:text-orange-400 transition-colors">Sign Up</Link>
                 </p>
               </div>
 
               <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="First Name" className="bg-[#1C1C1F] border-none" />
-                  <Input placeholder="Last Name" className="bg-[#1C1C1F] border-none" />
-                </div>
                 <Input type="email" placeholder="Email" className="bg-[#1C1C1F] border-none" />
                 <Input type="password" placeholder="Password" className="bg-[#1C1C1F] border-none" />
 
-                <div className="flex items-center space-x-2 pt-2">
-                  <input type="checkbox" id="terms" className="w-4 h-4 rounded appearance-none border border-zinc-600 bg-[#1C1C1F] checked:bg-orange-500 checked:border-orange-500 flex items-center justify-center relative before:content-['✓'] before:absolute before:text-white before:text-xs before:hidden checked:before:block" />
-                  <label htmlFor="terms" className="text-sm text-zinc-400 select-none cursor-pointer">
-                    I agree to the <Link href="#" className="underline hover:text-white">Terms and Condition</Link>
-                  </label>
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center space-x-2">
+                    <input type="checkbox" id="remember" className="w-4 h-4 rounded appearance-none border border-zinc-600 bg-[#1C1C1F] checked:bg-orange-500 checked:border-orange-500 flex items-center justify-center relative before:content-['✓'] before:absolute before:text-white before:text-xs before:hidden checked:before:block" />
+                    <label htmlFor="remember" className="text-sm text-zinc-400 select-none cursor-pointer">
+                      Remember me
+                    </label>
+                  </div>
+                  <Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">
+                    Forgot password?
+                  </Link>
                 </div>
 
                 <Button link='/dashboard' className="w-full mt-4 bg-[#232327] hover:bg-[#323238] border border-white/5 py-6 text-sm">
-                  Create account
+                  Log in
                 </Button>
               </form>
 
               <div className="flex items-center space-x-2">
                 <label htmlFor="terms" className="text-sm text-zinc-400 select-none cursor-pointer">
-                  Already have an accout? <Link href="/login" className="underline hover:text-white">Log In</Link>
+                  Don't have an account? <Link href="/signup" className="underline hover:text-white">Sign Up</Link>
                 </label>
               </div>
 

@@ -5,14 +5,14 @@ import { Button } from "./components/Button";
 export default function LandingPage() {
   return (
     <div className="relative min-h-screen flex flex-col items-center overflow-hidden bg-[#0A0A0A] text-white selection:bg-orange-500/30">
-      
+
       {/* Navbar */}
       <header className="absolute top-0 left-0 right-0 w-full px-8 py-6 flex items-center justify-between z-20">
-        <div className="text-xl font-medium tracking-tight">ZenTrack</div>
-        
+        <Link href='/' className="text-xl font-medium tracking-tight">ZenTrack</Link>
+
         <nav className="hidden md:flex items-center space-x-6 bg-white/5 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/10 text-sm font-medium">
           <Link href="#" className="hover:text-orange-400 transition-colors">Home</Link>
-          <Link href="#" className="text-zinc-400 hover:text-zinc-200 transition-colors">About Us</Link>
+          <Link href="/about" className="text-zinc-400 hover:text-zinc-200 transition-colors">About Us</Link>
           <Link href="#" className="text-zinc-400 hover:text-zinc-200 transition-colors">Contact Us</Link>
         </nav>
 
@@ -26,19 +26,15 @@ export default function LandingPage() {
           Master Your Subscriptions<br />
           Effortlessly
         </h1>
-        
+
         <div className="flex items-center space-x-4">
-          <Link href="/dashboard">
-            <Button variant="primary" size="lg" className="px-10 bg-[#27272A] hover:bg-[#3f3f46] text-white">
-              Log In
-            </Button>
-          </Link>
+          <Button link='/login' variant="primary" size="lg" className="px-10 bg-[#27272A] hover:bg-[#3f3f46] text-white">
+            Log In
+          </Button>
           <span className="text-sm font-medium text-zinc-500">Or</span>
-          <Link href="/signup">
-            <Button variant="primary" size="lg" className="px-10 bg-[#27272A] hover:bg-[#3f3f46] text-white">
-              Sign Up
-            </Button>
-          </Link>
+          <Button link='/signup' variant="primary" size="lg" className="px-10 bg-[#27272A] hover:bg-[#3f3f46] text-white">
+            Sign Up
+          </Button>
         </div>
       </main>
 
@@ -51,7 +47,7 @@ export default function LandingPage() {
         {/* Pitch black ground */}
         <div className="absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[110%] h-[60%] bg-[#0A0A0A] rounded-[100%] z-20 blur-sm"></div>
       </div>
-      
+
     </div>
   );
 }

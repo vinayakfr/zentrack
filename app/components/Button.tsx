@@ -1,8 +1,10 @@
+import Link from "next/link";
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
+  link?: string,
   children: React.ReactNode;
 }
 
@@ -11,6 +13,7 @@ export function Button({
   size = "md",
   children,
   className = "",
+  link = "",
   ...props
 }: ButtonProps) {
   const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
@@ -28,11 +31,14 @@ export function Button({
   };
 
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
+    <Link href={link}>
+      <button
+        className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+        {...props}
+        >
+        
+        {children}
+      </button>
+      </Link>
   );
 }
