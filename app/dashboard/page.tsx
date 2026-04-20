@@ -64,7 +64,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white flex overflow-hidden">
+    <div className="h-screen bg-[#0A0A0A] text-white flex overflow-hidden">
       
       <Sidebar />
 
