@@ -1,0 +1,26 @@
+from fastapi import FastAPI
+from app.routes import auth, subscriptions, payments
+from fastapi.middleware.cors import CORSMiddleware
+from app.cron import start_scheduler
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(auth.router)
+app.include_router(subscriptions.router)
+app.include_router(payments.router)
+
+@app.get("/")
+def root():
+    return {"message": "SaaS Dashboard API"}
+
+@app.on_event("startup")
+async def startup():
+    start_scheduler()
